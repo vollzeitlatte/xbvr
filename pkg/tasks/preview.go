@@ -99,6 +99,7 @@ func RenderPreview(inputFile string, destFile string, videoProjection string, st
 			"-pix_fmt", "yuv420p",
 			"-t", fmt.Sprintf("%v", snippetLength),
 			"-an", snippetFile,
+			"-c:v", "h264_nvenc",
 		}
 		cmd := buildCmd(GetBinPath("ffmpeg"), args...)
 		err := cmd.Run()
@@ -120,6 +121,7 @@ func RenderPreview(inputFile string, destFile string, videoProjection string, st
 			"-vf", vfArgs,
 			"-t", fmt.Sprintf("%v", snippetLength),
 			"-an", snippetFile,
+			"-c:v", "h264_nvenc",
 		}
 
 		cmd := buildCmd(GetBinPath("ffmpeg"), args...)
